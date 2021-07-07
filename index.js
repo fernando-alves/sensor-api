@@ -4,7 +4,7 @@ const port = process.env.PORT || 3000
 const storage = require('./lib/storage')
 const auth = require('./lib/auth')
 
-app.use(express.json());
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.send('up')
