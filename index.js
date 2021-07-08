@@ -7,7 +7,7 @@ const auth = require('./lib/auth')
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.send('up')
+  res.send('up!')
 })
 
 app.get('/readings', auth, (req, res) => {
