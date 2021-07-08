@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "express-basic-auth": "^1.2.0"
+    "express-basic-auth": "^1.2.0",
+    "mongodb": "^3.6.10"
   },
   "devDependencies": {
     "eslint": "^7.30.0",
