@@ -18,6 +18,10 @@ app.post('/readings', auth, (req, res) => {
   storage.store(req.body).then(() => res.status(201).end())
 })
 
-app.listen(port, () => {
-  console.log('Starting...')
-})
+const startServer = () => app.listen(port, () => console.log('Starting...'))
+const logAndFail = err => {
+  console.error('Failed to start server due to:', err)
+  process.exit(1)
+}
+
+storage.init().then(startServer).catch(logAndFail)
