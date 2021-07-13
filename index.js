@@ -15,7 +15,9 @@ app.get('/readings', auth, (req, res) => {
 })
 
 app.post('/readings', auth, (req, res) => {
-  storage.store(req.body).then(() => res.status(201).end())
+  const timestampInSeconds = Math.round(new Date().getTime() / 1000)
+  const reading = { timestamp: timestampInSeconds, ...req.body }
+  storage.store(reading).then(() => res.status(201).end())
 })
 
 const startServer = () => app.listen(port, () => console.log('Starting...'))
